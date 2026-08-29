@@ -27,6 +27,11 @@ const HORSE_UNIVERSE = [
 ];
 
 const RACE_PROFILES = [
+
+  /* ======================================================
+     DIRT TRACKS
+     ====================================================== */
+
   {
     track:"Churchill Downs",
     distance:"1 1/8 Miles",
@@ -118,7 +123,93 @@ const RACE_PROFILES = [
     lateWeight:1.15,
     raceSecondsMin:105,
     raceSecondsMax:130
+  },
+
+
+  /* ======================================================
+     TURF TRACKS
+     ====================================================== */
+
+  {
+    track:"Gulfstream Park",
+    distance:"1 Mile",
+    surface:"Turf",
+    raceType:"Allowance",
+    style:"Wide Open",
+    minHorses:8,
+    maxHorses:12,
+    volatility:1.18,
+    favoriteBoost:2,
+    routeWeight:1.25,
+    lateWeight:1.12,
+    raceSecondsMin:82,
+    raceSecondsMax:100
+  },
+
+  {
+    track:"Keeneland Turf Course",
+    distance:"1 1/8 Miles",
+    surface:"Turf",
+    raceType:"Stakes",
+    style:"Late Speed",
+    minHorses:8,
+    maxHorses:14,
+    volatility:1.12,
+    favoriteBoost:2,
+    routeWeight:1.25,
+    lateWeight:1.22,
+    raceSecondsMin:92,
+    raceSecondsMax:116
+  },
+
+  {
+    track:"Saratoga Turf",
+    distance:"1 1/16 Miles",
+    surface:"Turf",
+    raceType:"Stakes",
+    style:"Tactical",
+    minHorses:8,
+    maxHorses:12,
+    volatility:1.20,
+    favoriteBoost:2,
+    routeWeight:1.22,
+    lateWeight:1.20,
+    raceSecondsMin:88,
+    raceSecondsMax:108
+  },
+
+  {
+    track:"Santa Anita Turf",
+    distance:"1 Mile",
+    surface:"Turf",
+    raceType:"Allowance",
+    style:"Stalker Friendly",
+    minHorses:7,
+    maxHorses:11,
+    volatility:1.12,
+    favoriteBoost:2,
+    routeWeight:1.18,
+    lateWeight:1.14,
+    raceSecondsMin:78,
+    raceSecondsMax:94
+  },
+
+  {
+    track:"Belmont Turf",
+    distance:"1 1/8 Miles",
+    surface:"Turf",
+    raceType:"Stakes",
+    style:"Big Field",
+    minHorses:9,
+    maxHorses:16,
+    volatility:1.25,
+    favoriteBoost:1,
+    routeWeight:1.28,
+    lateWeight:1.25,
+    raceSecondsMin:94,
+    raceSecondsMax:118
   }
+
 ];
 
 const SILK_PALETTE = [
