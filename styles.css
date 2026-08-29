@@ -3188,9 +3188,3 @@ input:focus{
   from{transform:scale(.94);opacity:.50}
   to{transform:scale(1.10);opacity:1}
 }
-
-/* V4.25: browser-frame interpolation for smooth horse movement */
-.runner-visual{
-  will-change:transform;
-  transition:filter .22s ease,opacity .22s ease;
-}

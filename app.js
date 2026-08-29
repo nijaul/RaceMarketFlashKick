@@ -169,11 +169,7 @@ const state = {
   separationFactor:1,
 
   specialRunnerId:null,
-  specialAbilityName:null,
-
-  visualLoopStarted:false,
-  visualTargets:{},
-  visualPositions:{}
+  specialAbilityName:null
 };
 
 
@@ -752,9 +748,6 @@ function createRace(){
   }
 
   state.timer=null;
-
-  state.visualTargets={};
-  state.visualPositions={};
 
   state.profile=
     RACE_PROFILES[
@@ -2897,61 +2890,8 @@ function renderVisualTrack(){
   layer.innerHTML=
     state.horses.map(horse=>{
 
-      const targetX=
-        visualTrackPercent(
-          horse
-        );
-
-      const targetY=
-        visualLaneTop(
-          horse
-        );
-
-      if(
-        state.visualTargets[
-          horse.id
-        ]===
-        undefined
-      ){
-        state.visualTargets[
-          horse.id
-        ]={
-          x:targetX,
-          y:targetY
-        };
-      }else{
-        state.visualTargets[
-          horse.id
-        ].x=targetX;
-
-        state.visualTargets[
-          horse.id
-        ].y=targetY;
-      }
-
-      if(
-        state.visualPositions[
-          horse.id
-        ]===
-        undefined
-      ){
-        state.visualPositions[
-          horse.id
-        ]={
-          x:targetX,
-          y:targetY
-        };
-      }
-
-      const x=
-        state.visualPositions[
-          horse.id
-        ].x;
-
-      const y=
-        state.visualPositions[
-          horse.id
-        ].y;
+      const x=visualTrackPercent(horse);
+      const y=visualLaneTop(horse);
 
       const relativeSpeed=clamp(
         (horse.currentSpeed||0)/maxSpeed,
@@ -3045,14 +2985,8 @@ function renderVisualTrack(){
           "
           data-runner-id="${horse.id}"
           style="
-            left:0;
-            top:0;
-            transform:
-              translate3d(
-                calc(${x}% - 59px),
-                ${y}%,
-                0
-              );
+            left:calc(${x}% - 59px);
+            top:${y}%;
           "
         >
           <div class="runner-motion-trail" aria-hidden="true"></div>
@@ -5520,85 +5454,6 @@ function restartRace(){
    MAIN RENDER
 ========================================================= */
 
-
-function smoothVisualLoop(){
-  const layer=
-    document.getElementById(
-      "visualRunnerLayer"
-    );
-
-  if(layer){
-    Object.keys(
-      state.visualTargets
-    ).forEach(
-      id=>{
-        const target=
-          state.visualTargets[id];
-
-        const current=
-          state.visualPositions[id];
-
-        if(!target||!current){
-          return;
-        }
-
-        /*
-          Smoothly chase the one-second simulation
-          target. The simulation stays deterministic;
-          only the presentation becomes continuous.
-        */
-        const alpha=.16;
-
-        current.x +=
-          (
-            target.x-
-            current.x
-          )*
-          alpha;
-
-        current.y +=
-          (
-            target.y-
-            current.y
-          )*
-          alpha;
-
-        const runner=
-          layer.querySelector(
-            `[data-runner-id="${id}"]`
-          );
-
-        if(runner){
-          runner.style.transform=
-            `translate3d(
-              calc(${current.x}% - 59px),
-              ${current.y}%,
-              0
-            )`;
-        }
-      }
-    );
-  }
-
-  requestAnimationFrame(
-    smoothVisualLoop
-  );
-}
-
-function startSmoothVisualLoop(){
-  if(
-    state.visualLoopStarted
-  ){
-    return;
-  }
-
-  state.visualLoopStarted=true;
-
-  requestAnimationFrame(
-    smoothVisualLoop
-  );
-}
-
 function render(){
 
   const cash=
@@ -5778,8 +5633,6 @@ document.addEventListener(
   ()=>{
 
     wireEvents();
-
-    startSmoothVisualLoop();
 
     createRace();
   }
