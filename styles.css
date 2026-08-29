@@ -3194,3 +3194,462 @@ input:focus{
   will-change:left,top;
   transition:filter .22s ease,opacity .22s ease;
 }
+
+/* ==========================================================
+   RACEMARKET — SURFACE-SPECIFIC TRACK MATERIALS
+   Dirt = clay / soil / kickback
+   Turf = living grass / mowing stripes
+   ========================================================== */
+
+
+/* ==========================================================
+   BASE TRACK
+========================================================== */
+
+.visual-track{
+
+  background:
+    linear-gradient(
+      180deg,
+      #18291a 0%,
+      #18351e 48%,
+      #13291a 100%
+    ) !important;
+
+  border-color:
+    #3f5a43 !important;
+}
+
+
+/* ==========================================================
+   DIRT TRACK
+========================================================== */
+
+.visual-track[data-surface="Dirt"]{
+
+  background:
+
+    radial-gradient(
+      ellipse at 52% 45%,
+      rgba(191,131,77,.10),
+      transparent 45%
+    ),
+
+    repeating-linear-gradient(
+      96deg,
+      rgba(255,218,166,.018) 0 3px,
+      transparent 3px 17px
+    ),
+
+    linear-gradient(
+      180deg,
+      #49372b 0%,
+      #6b4b35 23%,
+      #80583d 48%,
+      #714b34 76%,
+      #503526 100%
+    ) !important;
+
+  border-color:
+    #72523b !important;
+
+  box-shadow:
+
+    inset 0 0 65px
+      rgba(29,17,10,.30),
+
+    inset 0 -85px 100px
+      rgba(39,20,10,.24),
+
+    0 18px 44px
+      rgba(0,0,0,.28);
+}
+
+
+/* dirt texture */
+
+.visual-track[data-surface="Dirt"]
+.track-lane-lines{
+
+  background:
+
+    repeating-linear-gradient(
+      84deg,
+      rgba(255,235,200,.035) 0 2px,
+      transparent 2px 11px
+    ),
+
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 43px,
+      rgba(60,32,19,.18) 44px,
+      rgba(60,32,19,.18) 45px
+    ),
+
+    repeating-linear-gradient(
+      12deg,
+      rgba(255,255,255,.018) 0 1px,
+      transparent 1px 31px
+    ) !important;
+
+  opacity:
+    .82;
+}
+
+
+/* dirt lane dividers */
+
+.visual-track[data-surface="Dirt"]
+.track-lane-lines::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 43px,
+      rgba(244,220,191,.065) 44px,
+      rgba(244,220,191,.065) 45px
+    );
+
+  opacity:.80;
+}
+
+
+/* visual dirt kickback / racing line */
+
+.visual-track[data-surface="Dirt"]
+.track-speed-lines{
+
+  background:
+
+    repeating-linear-gradient(
+      100deg,
+      transparent 0 31px,
+      rgba(245,214,176,.045) 31px 34px,
+      transparent 34px 72px
+    ) !important;
+
+  opacity:
+    .34;
+}
+
+
+/* dirt finish zone */
+
+.visual-track[data-surface="Dirt"]
+.finish-glow{
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(245,226,198,.13),
+      transparent 70%
+    );
+}
+
+
+/* ==========================================================
+   TURF TRACK
+========================================================== */
+
+.visual-track[data-surface="Turf"]{
+
+  background:
+
+    repeating-linear-gradient(
+      102deg,
+      rgba(123,165,91,.11) 0 7px,
+      rgba(71,122,68,.07) 7px 14px,
+      rgba(108,154,83,.11) 14px 21px
+    ),
+
+    linear-gradient(
+      180deg,
+      #1d4a26 0%,
+      #24602d 18%,
+      #287034 46%,
+      #215c2a 73%,
+      #173f20 100%
+    ) !important;
+
+  border-color:
+    #4c714b !important;
+
+  box-shadow:
+
+    inset 0 0 75px
+      rgba(9,31,12,.25),
+
+    inset 0 -80px 105px
+      rgba(6,24,9,.28),
+
+    0 18px 44px
+      rgba(0,0,0,.25);
+}
+
+
+/* turf mowing stripes */
+
+.visual-track[data-surface="Turf"]
+.track-lane-lines{
+
+  background:
+
+    repeating-linear-gradient(
+      90deg,
+      rgba(210,235,189,.075) 0 23px,
+      rgba(31,91,39,.075) 23px 46px
+    ),
+
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 43px,
+      rgba(226,240,210,.075) 44px,
+      rgba(226,240,210,.075) 45px
+    ) !important;
+
+  opacity:
+    .92;
+}
+
+
+/* subtle individual grass direction */
+
+.visual-track[data-surface="Turf"]
+.track-lane-lines::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+    repeating-linear-gradient(
+      82deg,
+      transparent 0,
+      transparent 8px,
+      rgba(185,226,156,.025) 9px,
+      transparent 10px 18px
+    );
+
+  opacity:
+    .65;
+}
+
+
+/* turf speed texture */
+
+.visual-track[data-surface="Turf"]
+.track-speed-lines{
+
+  background:
+
+    repeating-linear-gradient(
+      96deg,
+      transparent 0 27px,
+      rgba(205,230,179,.055) 27px 30px,
+      transparent 30px 68px
+    ) !important;
+
+  opacity:
+    .40;
+}
+
+
+/* turf finish zone */
+
+.visual-track[data-surface="Turf"]
+.finish-glow{
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(204,231,191,.15),
+      transparent 70%
+    );
+}
+
+
+/* ==========================================================
+   SURFACE-SPECIFIC RAIL LIGHTING
+========================================================== */
+
+.visual-track[data-surface="Dirt"]
+.track-rail{
+
+  background:
+    linear-gradient(
+      180deg,
+      #d6cdbc,
+      #999484
+    );
+
+  box-shadow:
+    0 2px 9px
+    rgba(0,0,0,.34);
+}
+
+.visual-track[data-surface="Turf"]
+.track-rail{
+
+  background:
+    linear-gradient(
+      180deg,
+      #e4e1d0,
+      #adb5a3
+    );
+
+  box-shadow:
+    0 2px 9px
+    rgba(0,0,0,.28);
+}
+
+
+/* ==========================================================
+   SURFACE LABELING
+   ========================================================== */
+
+.visual-track[data-surface="Dirt"]::after{
+
+  content:"DIRT";
+
+  position:absolute;
+
+  left:14px;
+  bottom:10px;
+
+  color:
+    rgba(255,225,193,.28);
+
+  font-size:8px;
+
+  font-weight:950;
+
+  letter-spacing:.12em;
+
+  z-index:20;
+}
+
+.visual-track[data-surface="Turf"]::after{
+
+  content:"TURF";
+
+  position:absolute;
+
+  left:14px;
+  bottom:10px;
+
+  color:
+    rgba(212,237,197,.36);
+
+  font-size:8px;
+
+  font-weight:950;
+
+  letter-spacing:.12em;
+
+  z-index:20;
+}
+
+
+/* ==========================================================
+   DIRT DUST
+========================================================== */
+
+.visual-track[data-surface="Dirt"]
+.runner-dust{
+
+  filter:
+    saturate(.82);
+}
+
+.visual-track[data-surface="Dirt"]
+.horse-dust i{
+
+  background:
+    rgba(220,184,143,.62);
+}
+
+.visual-track[data-surface="Turf"]
+.horse-dust i{
+
+  background:
+    rgba(140,180,111,.22);
+}
+
+
+/* ==========================================================
+   TURF GRASS KICK
+========================================================== */
+
+.visual-track[data-surface="Turf"]
+.runner-dust
+.horse-dust{
+
+  opacity:
+    .72;
+}
+
+.visual-track[data-surface="Turf"]
+.horse-dust i:nth-child(1),
+.visual-track[data-surface="Turf"]
+.horse-dust i:nth-child(3){
+
+  width:4px;
+  height:2px;
+
+  border-radius:
+    80%;
+}
+
+
+/* ==========================================================
+   CAMERA TREATMENT
+========================================================== */
+
+.visual-track[data-surface="Dirt"].camera-finish{
+
+  background-color:
+    #6b4934;
+}
+
+.visual-track[data-surface="Turf"].camera-finish{
+
+  background-color:
+    #275f30;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:760px){
+
+  .visual-track[data-surface="Dirt"]{
+
+    background-size:
+      auto,
+      auto,
+      auto,
+      auto;
+  }
+
+  .visual-track[data-surface="Turf"]{
+
+    background-size:
+      38px 100%,
+      auto;
+  }
+}
